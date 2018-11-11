@@ -1,0 +1,5 @@
+# Project dependencies
+node_modules
+
+# Output Data
+data
