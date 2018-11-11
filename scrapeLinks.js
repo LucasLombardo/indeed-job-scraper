@@ -1,10 +1,10 @@
-const QUERY = "web+developer";
+const QUERY = "front+end+developer";
 const STATE = "Massachusetts"; //state to look in
-const PAGES = 6; //number of pages to scrape
-const FILENAME = "webdeveloper_nov10"; //will be saved as .json in data/joblinks
+const PAGES = 3; //number of pages to scrape
+const FILENAME = "frontend_nov11"; //will be saved as .json in data/joblinks/
 
 // Example URL to get # of pages needed
-// https://www.indeed.com/jobs?q=web+developer&l=Massachusetts&radius=0&sort=date&limit=50&fromage=7&start=0
+// https://www.indeed.com/jobs?q=front+end+developer&l=Massachusetts&radius=0&sort=date&limit=50&fromage=7&start=0
 
 const rp = require("request-promise");
 const cheerio = require("cheerio");
@@ -25,11 +25,15 @@ Promise.all(data).then(function(data) {
   //save file
   console.log(`Saving ${cleanData.length} jobs to ${FILENAME}.json`);
   const fs = require("fs");
-  fs.writeFile(FILENAME + ".json", JSON.stringify(cleanData), function(err) {
-    if (err) {
-      console.log(err);
+  fs.writeFile(
+    `./data/joblinks/${FILENAME}.json`,
+    JSON.stringify(cleanData),
+    function(err) {
+      if (err) {
+        console.log(err);
+      }
     }
-  });
+  );
 });
 
 function scrapePage(start) {

@@ -23,15 +23,7 @@ jobs.forEach((job, i) => {
       const location = $(
         ".jobsearch-JobInfoHeader-subtitle > div > div:last-of-type"
       ).text();
-      //cleans unwanted metadata from posted time
-      let postedTime = $(".jobsearch-JobMetadataFooter").text;
-      //   const removeMeta = $(".jobsearch-JobMetadataFooter > *");
-      //   const remove = [];
-      //   removeMeta.forEach(s => remove.push(s.text));
-      //   remove.forEach(s => {
-      //     postedTime = postedTime.replace(s, "");
-      //   });
-      //pushes scraped data to array
+      const postedTime = $(".jobsearch-JobMetadataFooter").text;
       descs.push({
         title: job.title,
         link: job.link,
